@@ -1,0 +1,1 @@
+ssh 10.0.0.4 "cd /; tar cvzf - . --exclude ./home/pm/backup --exclude ./home/pm/app --exclude ./usr/local/squid/var --exclude ./proc" > /home/pavel/backup/serv2_backup_all.tar.gz
