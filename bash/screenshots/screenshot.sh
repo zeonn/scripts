@@ -33,10 +33,10 @@ PNGPARAMS='-m 136 -l 9 -q'
 # -q: quiet
 JPGPARAMS='-quality 20'
 
-USRNAME=`getent passwd | awk -F: '$3 == 1000 { print $1 }'`
+# USRNAME=`getent passwd | awk -F: '$3 == 1000 { print $1 }'`
 DATE=`date +%Y-%m-%d`
 TIME=`date +%H-%M`
-TEMPNAME=$USRNAME-shot.tmp.png
+TEMPNAME=$HOSTNAME-shot.tmp.png
 
 
 # Make a screenshot and pngcrush it
