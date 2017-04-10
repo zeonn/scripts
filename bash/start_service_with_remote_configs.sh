@@ -10,6 +10,7 @@
 REMOTE_HOST='remoteserver.com'
 REMOTE_PORT='22'
 REMOTE_USER='username'
+REMOTE_PASSWD='password'
 REMOTE_FOLDER='/home/username/openvpn/'
 CONF_FOLDER='/etc/openvpn/'
 SERVICE='openvpn'
@@ -27,7 +28,7 @@ until [ $(find ${CONF_FOLDER} -maxdepth 1 -type f | wc -l) == 0 ]; do
 	    echo "waiting for remote server..."
 	    sleep 3
 	done
-	scp -P ${REMOTE_PORT} -r ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_FOLDER}* ${CONF_FOLDER}
+	sshpass -p "${REMOTE_PASSWD}" scp -P ${REMOTE_PORT} -r ${REMOTE_USER}@${REMOTE_HOST}:${REMOTE_FOLDER}* ${CONF_FOLDER}
 done
 
 chown -R root:root ${CONF_FOLDER}*
